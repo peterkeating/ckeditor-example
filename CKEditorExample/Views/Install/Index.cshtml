@@ -1,0 +1,31 @@
+@model CKEditorExample.ViewModels.Install.InstallViewModel
+           
+@{
+    ViewBag.Title = "Install";
+    Layout = "~/Views/Shared/_Page.cshtml";
+}
+
+@{ Html.EnableClientValidation(); }
+
+<div id="single-form-page">
+    @using (Html.BeginForm("Index", "Install", FormMethod.Post, new { @class = "clearfix" }))
+    {
+        <h1>Installation</h1>
+        
+        <p>In order to get things started, you need to create an Admin account for your website.</p>
+        
+        @Html.LabelFor(model => model.Username, "Username")
+        @Html.TextBoxFor(model => model.Username)
+        @Html.ValidationMessageFor(model => model.Username)
+
+        @Html.LabelFor(model => model.Password, "Password")
+        @Html.PasswordFor(model => model.Password)
+        @Html.ValidationMessageFor(model => model.Password)
+
+        @Html.LabelFor(model => model.ConfirmPassword, "Confirm Password")
+        @Html.PasswordFor(model => model.ConfirmPassword)
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                   
+        <input type="submit" value="Create Account" />
+    }
+</div>

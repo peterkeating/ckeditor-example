@@ -1,0 +1,38 @@
+@model CKEditorExample.ViewModels.Login.LoginViewModel
+           
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Page.cshtml";
+}
+
+<div id="single-form-page">
+    <form method="post" class="clearfix">
+
+        @if (TempData["LogoutFeedback"] != null)
+        {
+            <div class="generic-feedback">
+                @TempData["LogoutFeedback"]
+            </div>
+        }
+
+        @if (ViewData["Feedback"] != null)
+        {
+            <div class="fail-feedback">
+                @ViewData["Feedback"]
+            </div>
+        }
+        
+        @Html.LabelFor(model => model.Username, "Username")
+        @Html.TextBoxFor(model => model.Username)
+    
+        @Html.LabelFor(model => model.Password, "Password")
+        @Html.PasswordFor(model => model.Password)
+        
+        <div class="checkbox clearfix">
+            @Html.CheckBoxFor(model => model.RememberMe)
+            @Html.LabelFor(model => model.RememberMe, "Remember Me")
+        </div>
+        
+        <input type="submit" value="Login" />
+    </form>
+</div>

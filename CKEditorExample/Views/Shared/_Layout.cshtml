@@ -1,0 +1,40 @@
+@using CKEditorExample.Models
+
+@{
+    Layout = "~/Views/Shared/_Page.cshtml";
+}
+
+    <header>
+        <h1>.NET MVC Boilerplate</h1>
+
+        <div class="version-bg">&nbsp;</div>
+        <div class="version">0.2</div>
+    </header>
+
+    <nav>
+        <a href="/#">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+
+        @if (User.IsInRole(Role.Admin)) {
+            <a href="/Admin">Admin Area</a>
+        }
+        
+        @if (User.Identity.IsAuthenticated) {
+            <div class="right-aligned-option">
+                <strong>Logged in as </strong><a href="/Profile">@Session["LoggedInAs"]</a> <a href="/Logout">Logout</a>
+            </div>
+        }
+        else
+        {
+            <a href="/Login" class="right-aligned-option">Login</a>
+        }
+    </nav>
+
+    <div id="main">
+        @RenderBody()
+    </div>
+
+    <footer>
+
+    </footer>

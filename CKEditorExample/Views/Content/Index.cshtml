@@ -1,0 +1,15 @@
+﻿@model CKEditorExample.ViewModels.Content.ContentViewModel
+
+@{
+    ViewBag.Title = "Content Entry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+        <h2>Content Input</h2>
+
+        <form method="post" action="/Content/Submit">
+
+            @Html.TextAreaFor(x => x.Text)
+       
+            <p><input type="submit" value="Submit" /></p>
+        </form>
